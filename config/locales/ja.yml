@@ -1,0 +1,10 @@
+ja:
+  activemodel:
+    attributes:
+      login_form:
+        login_id: ユーザーID
+        password: パスワード
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: を入力してください

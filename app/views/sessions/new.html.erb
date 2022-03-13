@@ -1,0 +1,27 @@
+<h1>ログイン</h1>
+
+<%= form_with(model: @login_form, url: sessions_path) do |form| %>
+  <% if @login_form.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @login_form.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :login_id, style: "display: block" %>
+    <%= form.text_field :login_id %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit 'ログインする' %>
+  </div>
+<% end %>
