@@ -1,6 +1,6 @@
 <h1>ログイン</h1>
 
-<%= form_with(model: @login_form, url: sessions_path) do |form| %>
+<%= form_with(model: @login_form, url: login_path) do |form| %>
   <% if @login_form.errors.any? %>
     <div style="color: red">
       <ul>
