@@ -1,4 +1,9 @@
 ja:
+  activerecord:
+    attributes:
+      photo:
+        title: タイトル
+        file: 画像ファイル
   activemodel:
     attributes:
       login_form:
@@ -8,3 +13,4 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       blank: を入力してください
+      too_long: は%{count}文字以内で入力してください

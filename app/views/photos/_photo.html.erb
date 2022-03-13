@@ -1,0 +1,9 @@
+<div id="<%= dom_id photo %>">
+  <p>
+    <%= photo.title %>
+  </p>
+
+  <p>
+    <%= image_tag photo.file, size: '300x300' if photo.file.attached? %>
+  </p>
+</div>
