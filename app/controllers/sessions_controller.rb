@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to photos_path if logged_in?
+
     @login_form = LoginForm.new
   end
 
@@ -9,7 +11,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if user = @login_form.authenticate
         log_in(user)
-        format.html { redirect_to root_path, notice: 'ログインしました' }
+        format.html { redirect_to photos_path, notice: 'ログインしました' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

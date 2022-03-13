@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate
+
   def index
     @photos = current_user.photos.order(created_at: :desc)
   end
