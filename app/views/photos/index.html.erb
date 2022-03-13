@@ -1,8 +1,15 @@
 <p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
 
 <%= button_to 'ログアウト', logout_path, method: :delete %>
 
 <h1>写真一覧</h1>
+
+<% if my_tweet_app_enabled? %>
+  <p>MyTweetApp と連携中</p>
+<% else %>
+  <%= button_to 'MyTweetApp と連携', oauth_my_tweet_app_path, method: :post, data: { turbo: false } %>
+<% end %>
 
 <%= link_to '写真をアップロード', new_photo_path %>
 
