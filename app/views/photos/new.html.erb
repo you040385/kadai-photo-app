@@ -20,7 +20,7 @@
 
   <div>
     <%= form.label :file %>
-    <%= form.file_field :file %>
+    <%= form.file_field :file, accept: Photo::ACCEPTABLE_TYPES.join(',') %>
   </div>
 
   <div>

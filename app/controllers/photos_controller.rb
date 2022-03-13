@@ -5,6 +5,18 @@ class PhotosController < ApplicationController
     @photos = current_user.photos.order(created_at: :desc)
   end
 
+  def show
+    @photo = current_user.photos.find(params[:id])
+
+    respond_to do |format|
+      format.any(:png, :jpeg) do
+        send_data @photo.file.download,
+                  filename: @photo.file.filename.to_s,
+                  type: @photo.file.blob.content_type
+      end
+    end
+  end
+
   def new
     @photo = current_user.photos.build
   end

@@ -4,6 +4,6 @@
   </p>
 
   <p>
-    <%= image_tag photo.file, size: '300x300' if photo.file.attached? %>
+    <%= image_tag photo_file_path(photo), size: '300x300' if photo.file.attached? %>
   </p>
 </div>
