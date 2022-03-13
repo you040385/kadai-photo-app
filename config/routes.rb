@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :photos, only: %i[index show new create]
+  resources :photos, only: %i[index show new create] do
+    scope module: :photos do
+      resources :tweets, only: %i[create]
+    end
+  end
 
   namespace :oauth do
     post 'my_tweet_app' => 'my_tweet_app#create'

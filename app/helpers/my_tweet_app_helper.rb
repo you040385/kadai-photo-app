@@ -6,4 +6,8 @@ module MyTweetAppHelper
   def my_tweet_app_enabled?
     session[:user_session]['my_tweet_app_token'].present?
   end
+
+  def my_tweet_app_token
+    session[:user_session]['my_tweet_app_token']
+  end
 end
