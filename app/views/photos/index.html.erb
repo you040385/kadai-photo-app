@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<%= button_to 'ログアウト', logout_path, method: :delete %>
+
 <h1>写真一覧</h1>
 
 <%= link_to '写真をアップロード', new_photo_path %>
