@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate
 
   def index
-    @photos = current_user.photos.order(created_at: :desc)
+    @photos = current_user.photos.order(created_at: :desc).with_attached_file
   end
 
   def show
