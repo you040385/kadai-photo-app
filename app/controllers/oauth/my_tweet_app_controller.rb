@@ -4,16 +4,17 @@ module Oauth
 
     before_action :authenticate
 
-    SITE = 'https://arcane-ravine-29792.herokuapp.com/'
     REDIRECT_URI = 'http://localhost:3000/oauth/callback'
 
     def create
       redirect_to photos_path if my_tweet_app_enabled?
 
+      oauth_client = MyTweetApp::Oauth2Client.new
       redirect_to oauth_client.authorize_url(redirect_uri: REDIRECT_URI), allow_other_host: true
     end
 
     def callback
+      oauth_client = MyTweetApp::Oauth2Client.new
       access_token = oauth_client.token(code: params[:code], redirect_uri: REDIRECT_URI)
       message =
         if access_token
@@ -27,18 +28,6 @@ module Oauth
     end
 
     private
-
-    def oauth_client
-      Oauth2Client.new(client_id: client_id, client_secret: client_secret, site: SITE)
-    end
-
-    def client_id
-      Rails.application.credentials.my_tweet_app.oauth.client_id
-    end
-
-    def client_secret
-      Rails.application.credentials.my_tweet_app.oauth.client_secret
-    end
 
     def photo_params
       params.require(:photo).permit(:title, :file)
