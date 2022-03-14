@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= alert %></p>
 
-<%= button_to 'ログアウト', logout_path, method: :delete %>
+<%= link_to 'ログアウト', logout_path, data: { 'turbo-method': :delete } %>
 
 <h1>写真一覧</h1>
 
