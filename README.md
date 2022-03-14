@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 必要なもの
 
-Things you may want to cover:
+* Docker
+* Docker Compose
 
-* Ruby version
+## 環境構築
 
-* System dependencies
+```
+# config/master.key を作成する(中身は別でお渡しします)
 
-* Configuration
+docker-compose build
+docker-compose run --rm rails bin/rails db:setup
+docker-compose up
+```
 
-* Database creation
+http://localhost:3000 にアクセスしてログイン画面が表示されれば完了です。
 
-* Database initialization
+## 動作確認
 
-* How to run the test suite
+以下のユーザーを用意しています。
+```
+ユーザーID: user1, パスワード: pw1
+ユーザーID: user2, パスワード: pw2
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## コードについて補足
 
-* Deployment instructions
-
-* ...
+* テストコードはかいていません
+* 画像は png, jpg のみ許可しています
+  * 画像以外をアップロードできないようにしたかったためです
+  * 全ての画像を許可できると良いですが、ひとまずこの2つとしました
