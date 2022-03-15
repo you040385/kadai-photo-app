@@ -1,15 +1,27 @@
-<div id="<%= dom_id photo %>">
-  <p>
+<div id="<%= dom_id photo %>" class="photo">
+  <div>
     <%= photo.title %>
-  </p>
+  </div>
 
-  <p>
+  <div class="image-container">
     <%= image_tag photo_file_path(photo), size: '300x300' if photo.file.attached? %>
-  </p>
+  </div>
 
   <% if my_tweet_app_enabled? %>
-    <p>
+    <div>
       <%= button_to 'ツイートする', photo_tweets_path(photo), method: :post %>
-    </p>
+    </div>
   <% end %>
 </div>
+
+<style>
+.photo {
+  text-align: center;
+  margin: 0px 10px 40px 0px;
+}
+
+.image-container img {
+  border: 1px solid black;
+  object-fit: contain;
+}
+</style>

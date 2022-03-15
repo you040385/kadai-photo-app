@@ -13,8 +13,15 @@
 
 <%= link_to '写真をアップロード', new_photo_path %>
 
-<div id="photos">
+<div id="photos" class="photos">
   <% @photos.each do |photo| %>
     <%= render photo %>
   <% end %>
 </div>
+
+<style>
+.photos {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
